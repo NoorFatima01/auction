@@ -6,9 +6,9 @@ import {
   BreadcrumbLink,
   BreadcrumbSeparator,
   BreadcrumbPage,
-} from "./ui/breadcrumb";
-import Blob from "../assets/blob.svg";
-import Shape from "../assets/shape.svg";
+} from "../ui/breadcrumb";
+import Blob from "@/assets/blob.svg";
+import Shape from "@/assets/shape.svg";
 
 const AddProductBreadCrumb = () => {
   return (

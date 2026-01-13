@@ -1,4 +1,4 @@
-import AddProductBreadCrumb from "@/components/add-product-bread-crumb";
+import AddProductBreadCrumb from "@/components/add-products-forms/add-product-bread-crumb";
 import AddProduct from "@/components/add-products-forms/add-product";
 import type { ReactElement } from "react";
 import { Metadata } from "next";

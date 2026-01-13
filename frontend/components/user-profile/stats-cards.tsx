@@ -4,7 +4,7 @@ const StatsCards = () => {
   const stats = [
     { label: "Bids Placed", value: "42" },
     { label: "Purchases", value: "15" },
-    { label: "Spent", value: "$1003" },
+    { label: "Spent", value: "$100" },
     { label: "Last Active", value: "Today", subValue: "9:45 am" },
   ];
 

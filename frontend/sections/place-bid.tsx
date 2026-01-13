@@ -1,6 +1,6 @@
 import React from "react";
 import Auction from "@/assets/auction.svg";
-import Carousel from "../components/carousel";
+import Carousel from "../components/main-page/carousel";
 
 const PlaceBid = () => {
   return (

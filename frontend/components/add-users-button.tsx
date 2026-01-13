@@ -1,29 +1,23 @@
 "use client";
 
-import useSWR from "swr";
+import { useMutation } from "@tanstack/react-query";
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
-  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formSchema, type FormSchemaType } from "@/lib/schema";
@@ -33,18 +27,27 @@ import {
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field";
-import { useEffect } from "react";
+import { useState } from "react";
 
-const fetcher = (url: string, { arg }: { arg: FormSchemaType }) =>
-  fetch(url, {
+const addUser = async (data: FormSchemaType) => {
+  const res = await fetch("http://localhost:5000/api/user/add", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(arg),
-  }).then((res) => res.json());
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to add user");
+  }
+
+  return res.json();
+};
 
 const AddUsersButton = () => {
+  const [open, setOpen] = useState(false);
+
   const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,104 +57,104 @@ const AddUsersButton = () => {
     },
   });
 
-  const { data, mutate } = useSWR(
-    "http://localhost:5000/api/user/add",
-    fetcher
-  );
-
-  useEffect(() => {
-    if (data) {
-      console.log("Users data:", data);
-    }
-  }, [data]);
-
-  //   if (error) return <div>Error loading users ${error.message}</div>;
+  const mutation = useMutation({
+    mutationFn: addUser,
+    onSuccess: (data) => {
+      console.log("User added:", data);
+      form.reset();
+      setOpen(false);
+    },
+    onError: (error) => {
+      console.error("Error", error);
+    },
+  });
 
   const onSubmit = async (data: FormSchemaType) => {
     console.log("Submitting data:", data);
-    const { name, email, role } = data;
-    //   await registerUser({ name, email, role });
-    mutate({ arg: { name, email, role } });
-    form.reset();
+    mutation.mutate(data);
   };
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="bg-white border cursor-pointer hover:bg-gray-50 border-[#E0E2E7] text-[#667085] font-poppins text-[14px] leading-5">
+        <Button className="bg-white border border-[#E0E2E7] font-poppins text-[#667085] font-medium cursor-pointer hover:bg-gray-50">
           Add User
         </Button>
       </DialogTrigger>
       <DialogContent>
-        <DialogTitle>Add User Dialog</DialogTitle>
+        <DialogTitle>Add User</DialogTitle>
         <Card>
           <CardContent>
             <div>
-              <form id="my-form" onSubmit={form.handleSubmit(onSubmit)}>
-                <FieldGroup>
-                  <Controller
-                    name="name"
-                    control={form.control}
-                    render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="user-name">Name</FieldLabel>
-                        <Input
-                          {...field}
-                          id="user-name"
-                          aria-invalid={fieldState.invalid}
-                          placeholder="Name of user"
-                          autoComplete="off"
-                        />
-                        {fieldState.invalid && (
-                          <FieldError errors={[fieldState.error]} />
-                        )}
-                      </Field>
-                    )}
-                  />
-                  <Controller
-                    name="email"
-                    control={form.control}
-                    render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="user-email">Email</FieldLabel>
-                        <Input
-                          {...field}
-                          id="form-rhf-demo-title"
-                          aria-invalid={fieldState.invalid}
-                          placeholder="Login button not working on mobile"
-                          autoComplete="off"
-                        />
-                        {fieldState.invalid && (
-                          <FieldError errors={[fieldState.error]} />
-                        )}
-                      </Field>
-                    )}
-                  />
-                  <Controller
-                    name="role"
-                    control={form.control}
-                    render={({ field, fieldState }) => (
-                      <Field data-invalid={fieldState.invalid}>
-                        <FieldLabel htmlFor="user-email">Role</FieldLabel>
-                        <Select>
-                          <SelectTrigger className="w-full" {...field}>
-                            <SelectValue placeholder="Select a role" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="buyer">Buyer</SelectItem>
-                            <SelectItem value="seller">Seller</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        {fieldState.invalid && (
-                          <FieldError errors={[fieldState.error]} />
-                        )}
-                      </Field>
-                    )}
-                  />
-                </FieldGroup>
-              </form>
-              <Button type="submit" form="my-form">
-                Submit
+              <FieldGroup>
+                <Controller
+                  name="name"
+                  control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="user-name">Name</FieldLabel>
+                      <Input
+                        {...field}
+                        id="user-name"
+                        aria-invalid={fieldState.invalid}
+                        placeholder="Name of user"
+                        autoComplete="off"
+                      />
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+                <Controller
+                  name="email"
+                  control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="user-email">Email</FieldLabel>
+                      <Input
+                        {...field}
+                        id="user-email"
+                        aria-invalid={fieldState.invalid}
+                        placeholder="user@example.com"
+                        autoComplete="off"
+                      />
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+                <Controller
+                  name="role"
+                  control={form.control}
+                  render={({ field, fieldState }) => (
+                    <Field data-invalid={fieldState.invalid}>
+                      <FieldLabel htmlFor="user-role">Role</FieldLabel>
+                      <Select
+                        value={field.value}
+                        onValueChange={field.onChange}
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue placeholder="Select a role" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="buyer">Buyer</SelectItem>
+                          <SelectItem value="seller">Seller</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      {fieldState.invalid && (
+                        <FieldError errors={[fieldState.error]} />
+                      )}
+                    </Field>
+                  )}
+                />
+              </FieldGroup>
+              <Button
+                onClick={form.handleSubmit(onSubmit)}
+                disabled={mutation.isPending}
+              >
+                {mutation.isPending ? "Submitting..." : "Submit"}
               </Button>
             </div>
           </CardContent>

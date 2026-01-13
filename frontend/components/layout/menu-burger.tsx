@@ -35,7 +35,7 @@ const MenuBurger = ({ isOpen, onClose }: MenuBurgerProps) => {
           <nav className="mb-8">
             <ul className="space-y-4">
               <li className="text-[#5C5F6A] text-[16px] font-medium cursor-pointer hover:underline">
-                <Link href={"/"}>Homes</Link>
+                <Link href={"/"}>Home</Link>
               </li>
               <li className="text-[#5C5F6A] text-[16px] font-medium cursor-pointer  hover:underline">
                 <Link href={"/users"}>Chats</Link>

@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import carouselImage from "../assets/carousel.png";
+import carouselImage from "@/assets/carousel.png";
 import Image from "next/image";
 
 const Carousel = () => {

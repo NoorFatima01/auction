@@ -1,8 +1,7 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import Heart from "../assets/heart.svg";
-import rect from "../assets/rectangle.png";
-import RedHeart from "../assets/red-heart.svg";
+import Heart from "@/assets/heart.svg";
+import rect from "@/assets/rectangle.png";
 
 type foryouProps = {
   img: StaticImageData;

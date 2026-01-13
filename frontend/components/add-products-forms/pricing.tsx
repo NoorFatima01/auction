@@ -20,6 +20,7 @@ export default function PricingColumn() {
     },
   });
 
+
   const pricingFormat = watch("pricingFormat");
 
   const onSubmit = (data: any) => {

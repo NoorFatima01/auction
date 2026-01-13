@@ -1,4 +1,3 @@
-import { bg } from "zod/v4/locales";
 import Search from "../assets/search.svg";
 
 const SearchBar = ({

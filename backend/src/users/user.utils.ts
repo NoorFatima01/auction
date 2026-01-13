@@ -1,4 +1,3 @@
-import mongoose from "mongoose";
 import { UserModel } from "./user.model.js";
 
 const createUser = async (
@@ -16,8 +15,13 @@ const fetchUsers = async () => {
 };
 
 const fetchUserById = async (id: string) => {
-    const user = await UserModel.findById(id);
-    return user;
-}
+  const user = await UserModel.findById(id);
+  return user;
+};
 
-export { createUser, fetchUsers, fetchUserById };
+const deleteUser = async (id: string) => {
+  const user = await UserModel.findByIdAndDelete(id);
+  return user;
+};
+
+export { createUser, fetchUsers, fetchUserById, deleteUser };

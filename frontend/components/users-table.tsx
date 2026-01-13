@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
-import useSWR from "swr";
+import { useQuery } from "@tanstack/react-query";
 import { ObjectId } from "mongodb";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,7 +21,11 @@ import Trash from "@/assets/trash.svg";
 import SearchBar from "./search-bar";
 import AddUsersButton from "./add-users-button";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetchUsers = async () => {
+  const res = await fetch("http://localhost:5000/api/user/all");
+  if (!res.ok) throw new Error("Failed to fetch users");
+  return res.json();
+};
 
 type UsersTableProps = {
   _id: ObjectId | string;
@@ -34,10 +38,10 @@ const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
   const [selectedUsers, setSelectedUsers] = useState<(ObjectId | string)[]>([]);
   const [anyUserSelected, setAnyUserSelected] = useState(false);
 
-  const { data, isLoading } = useSWR(
-    "http://localhost:5000/api/user/all",
-    fetcher
-  );
+  const { data, isLoading } = useQuery({
+    queryKey: ["users"],
+    queryFn: fetchUsers,
+  });
 
   const toggleUserSelection = (userId: ObjectId | string) => {
     setSelectedUsers((prevSelected) =>

@@ -1,4 +1,9 @@
-import { createUser, fetchUsers, fetchUserById } from "./user.utils.js";
+import {
+  createUser,
+  fetchUsers,
+  fetchUserById,
+  deleteUser,
+} from "./user.utils.js";
 import { type Request, type Response } from "express";
 
 const registerUser = async (req: Request, res: Response) => {
@@ -24,12 +29,14 @@ const fetchAllUsers = async (req: Request, res: Response) => {
 
 const fetchOneUser = async (req: Request, res: Response) => {
   const { id } = req.params;
-  if(!id){
-    return res.status(400).json({ message: "Bad request. User ID is required" });
+  if (!id) {
+    return res
+      .status(400)
+      .json({ message: "Bad request. User ID is required" });
   }
   try {
     console.log(`Fetching user with id: ${id}`);
-    const user = await fetchUserById(id);
+    const user = await fetchUserById(id as string);
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -39,4 +46,23 @@ const fetchOneUser = async (req: Request, res: Response) => {
   }
 };
 
-export { registerUser, fetchAllUsers, fetchOneUser };
+const deleteUserById = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  if (!id) {
+    return res
+      .status(400)
+      .json({ message: "Bad request. User ID is required" });
+  }
+  try {
+    console.log(`Deleting user with id: ${id}`);
+    const user = await deleteUser(id as string);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    res.status(200).json({ message: "User deleted successfully", user });
+  } catch (error) {
+    res.status(500).json({ message: "Error deleting user", error });
+  }
+};
+
+export { registerUser, fetchAllUsers, fetchOneUser, deleteUserById };

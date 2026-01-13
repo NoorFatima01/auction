@@ -22,7 +22,7 @@ const NavBar = () => {
         <nav className="hidden md:block">
           <ul className="text-[#5C5F6A] text-[14px] leading-[1.75] font-medium flex gap-8">
             <li className="cursor-pointer hover:underline">
-              <Link href={"/"}>Homes</Link>
+              <Link href={"/"}>Home</Link>
             </li>
             <li className="cursor-pointer hover:underline">
               <Link href={"/users"}>Chats</Link>

@@ -6,10 +6,10 @@ import watson from "@/assets/watson.png";
 
 const UserSearchBar = () => {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 bg-white rounded-l-sm rounded-r-3xl p-3 md:p-4 mt-3 my-6 ">
+    <div className="flex flex-row items-center justify-between gap-4 md:gap-6 bg-white rounded-l-sm rounded-r-3xl p-3 md:p-4 mt-3 my-6 ">
       <SearchBar placeholder={"Search"} isSmall={true} />
 
-      <div className="flex  flex-col md:flex-row items-center gap-4 md:gap-6">
+      <div className="flex flex-row items-center gap-4 md:gap-6">
         <div className="cursor-pointer hover:opacity-80 transition-opacity">
           <Bell className="w-10 h-10 md:w-10 md:h-10 text-[#8A92A6]" />
         </div>

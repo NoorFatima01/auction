@@ -1,5 +1,5 @@
 import React from "react";
-import ForYouCard from "../components/for-you-card";
+import ForYouCard from "../components/main-page/for-you-card";
 import { recommendedImages } from "@/lib/constant";
 
 const Recommended = () => {
