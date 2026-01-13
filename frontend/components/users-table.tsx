@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Checkbox } from "@/components/ui/checkbox";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { ObjectId } from "mongodb";
 import Link from "next/link";
 import Image from "next/image";
@@ -21,15 +21,18 @@ import SearchBar from "./search-bar";
 import AddUsersButton from "./add-users-button";
 
 const fetchUsers = async () => {
-  const res = await fetch("http://localhost:5000/api/user/all");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/all`);
   if (!res.ok) throw new Error("Failed to fetch users");
   return res.json();
 };
 
 const deleteUser = async (userId: ObjectId) => {
-  const res = await fetch(`http://localhost:5000/api/user/${userId}`, {
-    method: "DELETE",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/user/id/${userId}`,
+    {
+      method: "DELETE",
+    }
+  );
   if (!res.ok) throw new Error("Failed to delete user");
   return res.json();
 };
@@ -44,10 +47,22 @@ type UsersTableProps = {
 const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
   const [selectedUsers, setSelectedUsers] = useState<(ObjectId | string)[]>([]);
   const [anyUserSelected, setAnyUserSelected] = useState(false);
+  const queryClient = useQueryClient();
 
   const { data, isLoading } = useQuery({
     queryKey: ["users"],
     queryFn: fetchUsers,
+  });
+
+  const deleteUserMutation = useMutation({
+    mutationFn: deleteUser,
+    onSuccess: () => {
+      alert("User deleted successfully");
+      queryClient.invalidateQueries({ queryKey: ["users"] });
+    },
+    onError: (error) => {
+      alert(`Error deleting user: ${error.message}`);
+    },
   });
 
   const toggleUserSelection = (userId: ObjectId | string) => {
@@ -73,7 +88,7 @@ const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
   };
 
   const handleDelete = (userId: ObjectId | string) => {
-    console.log("Delete user:", userId);
+    deleteUserMutation.mutate(userId as ObjectId);
   };
 
   useEffect(() => {
@@ -180,7 +195,7 @@ const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
                           onClick={() => handleDelete(user._id)}
                           className="p-2 hover:bg-gray-100 transition-colors cursor-pointer"
                           title="Delete"
-                          disabled={typeof user._id === "string"}
+                          disabled={deleteUserMutation.isPending}
                         >
                           <Trash className="w-4 h-4 text-[#999999]" />
                         </button>

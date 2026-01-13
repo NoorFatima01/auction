@@ -30,7 +30,7 @@ import {
 import { useState } from "react";
 
 const addUser = async (data: FormSchemaType) => {
-  const res = await fetch("http://localhost:5000/api/user/add", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/user/add`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
