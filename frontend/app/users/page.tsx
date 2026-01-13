@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const UsersPage = () => {
   return (
-    <div className="bg-gray-50 p-4 ">
+    <div className="bg-gray-50 p-4 min-h-screen">
       <UserSearchBar />
 
       <h1 className="text-[#3F175F] text-[24px] leading-[125%] font-poppins font-semibold">
