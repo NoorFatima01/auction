@@ -14,23 +14,20 @@ const PlaceBid = () => {
           with minor signs of use (if any). Available in multiple storage
           options and colors ...
         </p>
-        {/* Place Bid Button */}
         <button className="w-full md:w-[170px] lg:w-[168px] bg-[#3F175F] text-[12px] md:text-[13px] leading-none cursor-pointer hover:opacity-80 text-white font-medium py-3 px-4 rounded-[7px] mb-6 flex items-center justify-center gap-2 transition-colors">
           <span>
             <Auction className="w-[22px] h-[22px]" />
           </span>
           Place your bid {">"}
         </button>
-        {/* Auction Ending Section */}
         <div className="space-y-3">
           <h3 className="text-[#484848] font-medium leading-none text-[16px] md:text-[18px] lg:text-[19px]">
             Auction Ending in
           </h3>
-          {/* Timer */}
           <div className="flex gap-4 md:gap-3">
             <div className="text-center flex-1 md:flex-none">
-              <div className="bg-moonstone/20 rounded-[6px] p-2 md:p-4">
-                <p className="text-[18px] md:text-[21px] leading-none font-bold text-moonstone">
+              <div className="bg-[#25A5B433] rounded-[6px] p-2 md:p-4">
+                <p className="text-[18px] md:text-[21px] leading-none font-bold text-[#25A5B4]">
                   04
                 </p>
               </div>
@@ -39,8 +36,8 @@ const PlaceBid = () => {
               </div>
             </div>
             <div className="text-center flex-1 md:flex-none">
-              <div className="bg-moonstone/20 rounded-[6px] p-2 md:p-4">
-                <p className="text-[18px] md:text-[21px] leading-none font-bold text-moonstone">
+              <div className="bg-[#25A5B433] rounded-[6px] p-2 md:p-4">
+                <p className="text-[18px] md:text-[21px] leading-none font-bold text-[#25A5B4]">
                   21
                 </p>
               </div>
@@ -49,8 +46,8 @@ const PlaceBid = () => {
               </div>
             </div>
             <div className="text-center flex-1 md:flex-none">
-              <div className="bg-moonstone/20 rounded-[6px] p-2 md:p-4">
-                <p className="text-[18px] md:text-[21px] leading-none font-bold text-moonstone">
+              <div className="bg-[#25A5B433] rounded-[6px] p-2 md:p-4">
+                <p className="text-[18px] md:text-[21px] leading-none font-bold text-[#25A5B4]">
                   04
                 </p>
               </div>

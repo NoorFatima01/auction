@@ -12,7 +12,7 @@ const Categories = () => {
           Categories
         </h2>
         <div className="">
-          <p className="cursor-pointer mt-3 md:mt-0 hover:underline font-inter leading-none text-moonstone text-[21px] font-medium">
+          <p className="cursor-pointer mt-3 md:mt-0 hover:underline font-inter leading-none text-[#25A5B4] text-[21px] font-medium">
             See All
           </p>
         </div>

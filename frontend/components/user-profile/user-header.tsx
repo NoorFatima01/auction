@@ -25,7 +25,7 @@ const UserHeader = () => {
             Buyer
           </p>
           <div className="flex items-center gap-1">
-            <LocationPin className="w-4 h-4 text-moonstone" />
+            <LocationPin className="w-4 h-4 text-[#25A5B4]" />
             <span className="text-sm md:text-[1rem] font-medium leading-none text-[#3D3D5D]">
               Islamabad, Pakistan
             </span>

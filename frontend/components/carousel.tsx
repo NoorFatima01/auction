@@ -29,7 +29,7 @@ const Carousel = () => {
               <span
                 key={index}
                 className={`inline-block h-3 w-3 rounded-full mx-1 cursor-pointer ${
-                  currentImage === index ? "bg-moonstone" : "bg-gray-300"
+                  currentImage === index ? "bg-[#25A5B4]" : "bg-gray-300"
                 }`}
                 onClick={() => handleDotClick(index)}
               ></span>

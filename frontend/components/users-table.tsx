@@ -53,18 +53,16 @@ const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
   };
 
   const handleView = (userId: ObjectId | string) => {
+    window.location.href = `/users/${userId}`;
     console.log("View user:", userId);
-    // Navigate to user details or open modal
   };
 
   const handleEdit = (userId: ObjectId | string) => {
     console.log("Edit user:", userId);
-    // Navigate to edit page or open edit modal
   };
 
   const handleDelete = (userId: ObjectId | string) => {
     console.log("Delete user:", userId);
-    // Show confirmation dialog and delete
   };
 
   useEffect(() => {

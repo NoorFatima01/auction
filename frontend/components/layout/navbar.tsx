@@ -7,6 +7,7 @@ import Menu from "@/assets/menu.svg";
 import profile from "@/assets/user-profile.png";
 import Image from "next/image";
 import MenuBurger from "./menu-burger";
+import Link from "next/link";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +21,15 @@ const NavBar = () => {
 
         <nav className="hidden md:block">
           <ul className="text-[#5C5F6A] text-[14px] leading-[1.75] font-medium flex gap-8">
-            <li className="cursor-pointer hover:underline">Homes</li>
-            <li className="cursor-pointer hover:underline">Chats</li>
-            <li className="cursor-pointer hover:underline">Auctions</li>
+            <li className="cursor-pointer hover:underline">
+              <Link href={"/"}>Homes</Link>
+            </li>
+            <li className="cursor-pointer hover:underline">
+              <Link href={"/users"}>Chats</Link>
+            </li>
+            <li className="cursor-pointer hover:underline">
+              <Link href={"/add-product"}>Auctions</Link>
+            </li>
           </ul>
         </nav>
 
