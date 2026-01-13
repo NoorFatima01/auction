@@ -1,7 +1,12 @@
 import UserSearchBar from "@/components/user-profile/user-search-bar";
 import UsersTable from "@/components/users-table";
 import React from "react";
-import {users} from "@/lib/constant"
+import { users } from "@/lib/constant";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Users",
+};
 
 const UsersPage = () => {
   return (

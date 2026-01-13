@@ -29,8 +29,8 @@ const PlaceBid = () => {
           {/* Timer */}
           <div className="flex gap-4 md:gap-3">
             <div className="text-center flex-1 md:flex-none">
-              <div className="bg-[#25A5B433] rounded-[6px] p-2 md:p-4">
-                <p className="text-[18px] md:text-[21px] leading-none font-bold text-[#25A5B4]">
+              <div className="bg-moonstone/20 rounded-[6px] p-2 md:p-4">
+                <p className="text-[18px] md:text-[21px] leading-none font-bold text-moonstone">
                   04
                 </p>
               </div>
@@ -39,8 +39,8 @@ const PlaceBid = () => {
               </div>
             </div>
             <div className="text-center flex-1 md:flex-none">
-              <div className="bg-[#25A5B433] rounded-[6px] p-2 md:p-4">
-                <p className="text-[18px] md:text-[21px] leading-none font-bold text-[#25A5B4]">
+              <div className="bg-moonstone/20 rounded-[6px] p-2 md:p-4">
+                <p className="text-[18px] md:text-[21px] leading-none font-bold text-moonstone">
                   21
                 </p>
               </div>
@@ -49,8 +49,8 @@ const PlaceBid = () => {
               </div>
             </div>
             <div className="text-center flex-1 md:flex-none">
-              <div className="bg-[#25A5B433] rounded-[6px] p-2 md:p-4">
-                <p className="text-[18px] md:text-[21px] leading-none font-bold text-[#25A5B4]">
+              <div className="bg-moonstone/20 rounded-[6px] p-2 md:p-4">
+                <p className="text-[18px] md:text-[21px] leading-none font-bold text-moonstone">
                   04
                 </p>
               </div>

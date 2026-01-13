@@ -12,7 +12,7 @@ const AddProduct = () => {
       </div>
 
       <div className="flex items-center justify-center">
-        <button className="bg-[#25A5B4] flex items-center gap-2 px-10 md:px-24 py-5 rounded-[110px] hover:opacity-80 cursor-pointer">
+        <button className="bg-moonstone flex items-center gap-2 px-10 md:px-24 py-5 rounded-[110px] hover:opacity-80 cursor-pointer">
           <p className="text-white text-[12px] md:text-[16.5px] font-medium leading-none">
             Next
           </p>

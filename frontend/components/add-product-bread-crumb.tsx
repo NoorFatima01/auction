@@ -49,8 +49,8 @@ const AddProductBreadCrumb = () => {
           </BreadcrumbList>
         </Breadcrumb>
       </div>
-      <Blob className="absolute top-0 left-0 w-20 md:w-32 lg:w-auto" />
-      <Shape className="absolute bottom-0 right-0 w-20 md:w-32 lg:w-auto" />
+      <Blob className="absolute top-0 left-0 w-[250px] h-[250px]" />
+      <Shape className="text-[#E9F6F7] absolute bottom-0 right-10 w-[250px] h-[200px]" />
     </div>
   );
 };
