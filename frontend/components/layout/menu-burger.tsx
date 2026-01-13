@@ -3,6 +3,7 @@ import Bell from "@/assets/bell.svg";
 import Cart from "@/assets/cart.svg";
 import profile from "@/assets/user-profile.png";
 import Image from "next/image";
+import Link from "next/dist/client/link";
 
 interface MenuBurgerProps {
   isOpen: boolean;
@@ -34,13 +35,13 @@ const MenuBurger = ({ isOpen, onClose }: MenuBurgerProps) => {
           <nav className="mb-8">
             <ul className="space-y-4">
               <li className="text-[#5C5F6A] text-[16px] font-medium cursor-pointer hover:underline">
-                Homes
+                <Link href={"/"}>Homes</Link>
               </li>
               <li className="text-[#5C5F6A] text-[16px] font-medium cursor-pointer  hover:underline">
-                Chats
+                <Link href={"/users"}>Chats</Link>
               </li>
               <li className="text-[#5C5F6A] text-[16px] font-medium cursor-pointer hover:underline">
-                Auctions
+                <Link href={"/add-product"}>Auctions</Link>
               </li>
             </ul>
           </nav>
