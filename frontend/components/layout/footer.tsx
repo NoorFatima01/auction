@@ -1,8 +1,7 @@
 import React from "react";
-import slack from "../assets/slack.svg";
-import twitter from "../assets/twitter.svg";
-import github from "../assets/github.svg";
-import Image from "next/image";
+import Slack from "../../assets/slack.svg";
+import Twitter from "../../assets/twitter.svg";
+import Github from "../../assets/github.svg";
 
 const Footer = () => {
   return (
@@ -11,9 +10,9 @@ const Footer = () => {
         <p className="font-normal text-[22px]  leading-[36px]">mumktly.com</p>
 
         <div className="flex gap-4 md:mb-[-4] mt-3 md:mt-0">
-          <Image src={slack} alt="Slack Icon" className="cursor-pointer" />
-          <Image src={twitter} alt="Twitter Icon" className="cursor-pointer" />
-          <Image src={github} alt="GitHub Icon" className="cursor-pointer" />
+          <Slack className="cursor-pointer" />
+          <Twitter className="cursor-pointer" />
+          <Github className="cursor-pointer" />
         </div>
       </div>
 

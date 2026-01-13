@@ -1,7 +1,7 @@
 import React from "react";
-import bell from "../assets/bell.svg";
-import cart from "../assets/cart.svg";
-import profile from "../assets/user-profile.png";
+import Bell from "@/assets/bell.svg";
+import Cart from "@/assets/cart.svg";
+import profile from "@/assets/user-profile.png";
 import Image from "next/image";
 
 interface MenuBurgerProps {
@@ -47,13 +47,13 @@ const MenuBurger = ({ isOpen, onClose }: MenuBurgerProps) => {
 
           <div className="space-y-3">
             <button className="w-full flex items-center gap-3 p-3 border rounded-lg border-[#3F175F1A] hover:bg-gray-50">
-              <Image src={bell} alt="Notifications" width={24} height={24} />
+              <Bell className="w-[24px] h-[24px]" />
               <span className="text-[#5C5F6A] text-[14px] font-medium">
                 Notifications
               </span>
             </button>
             <button className="w-full flex items-center gap-3 p-3 border rounded-lg border-[#3F175F1A] hover:bg-gray-50">
-              <Image src={cart} alt="Cart" width={24} height={24} />
+              <Cart className="w-[24px] h-[24px]" />
               <span className="text-[#5C5F6A] text-[14px] font-medium">
                 Cart
               </span>

@@ -10,7 +10,7 @@ const UsersPage = () => {
             <p>All Users</p>
               <AddUsersButton />
         </div>
-      <UsersTable />
+      {/* <UsersTable /> */}
     </div>
   );
 };

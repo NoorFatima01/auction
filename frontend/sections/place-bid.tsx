@@ -1,6 +1,5 @@
 import React from "react";
-import auction from "../assets/auction.svg";
-import Image from "next/image";
+import Auction from "@/assets/auction.svg";
 import Carousel from "../components/carousel";
 
 const PlaceBid = () => {
@@ -18,7 +17,7 @@ const PlaceBid = () => {
         {/* Place Bid Button */}
         <button className="w-full md:w-[170px] lg:w-[168px] bg-[#3F175F] text-[12px] md:text-[13px] leading-none cursor-pointer hover:opacity-80 text-white font-medium py-3 px-4 rounded-[7px] mb-6 flex items-center justify-center gap-2 transition-colors">
           <span>
-            <Image src={auction} alt="Auction Icon" height={24} width={24} />
+            <Auction className="w-[22px] h-[22px]" />
           </span>
           Place your bid {">"}
         </button>

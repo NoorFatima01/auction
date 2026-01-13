@@ -1,8 +1,8 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
-import heart from "../assets/heart.svg";
+import Heart from "../assets/heart.svg";
 import rect from "../assets/rectangle.png";
-import redHeart from "../assets/red-heart.svg";
+import RedHeart from "../assets/red-heart.svg";
 
 type foryouProps = {
   img: StaticImageData;
@@ -25,13 +25,11 @@ const ForYouCard = ({
     <div className="shadow-lg w-[19rem] min-h-[295px] rounded-2xl">
       <div>
         <div className="relative">
-          {/* heart icon on top of image as absolute */}
           <div className="flex absolute top-3 right-3 bg-[#0000001A] p-3 rounded-[5px]">
-            <Image
-              src={isHearted ? redHeart : heart}
-              alt="Heart Icon"
-              className={`cursor-pointer`}
-              height={20}
+            <Heart
+              className={`w-[25px] h-[25px] cursor-pointer ${
+                isHearted ? "text-[#F16D6F]" : "text-white"
+              }`}
             />
           </div>
 

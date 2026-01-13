@@ -1,5 +1,5 @@
 import React from "react";
-import heroImg from "../assets/hero-img.png";
+import heroImg from "@/assets/hero-img.png";
 import SearchBar from "../components/search-bar";
 
 const Hero = () => {

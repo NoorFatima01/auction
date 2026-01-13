@@ -1,10 +1,10 @@
-import UsersSidebar from "@/components/users-sidebard";
+import Sidebar from "@/components/sidebar";
 import React from "react";
 
 const UsersPageLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex">
-      <UsersSidebar />
+      <Sidebar />
       <main className="flex-1">{children}</main>
     </div>
   );
