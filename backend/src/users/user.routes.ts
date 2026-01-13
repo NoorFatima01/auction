@@ -1,4 +1,4 @@
-import express = require("express");
+import express from "express";
 const router = express.Router();
 import { registerUser, fetchAllUsers } from "./user.controller.js";
 import { validateUserRegistration } from "./user.middleware.js";

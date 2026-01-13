@@ -5,7 +5,7 @@ import LocationColumn from "./location";
 const AddProduct = () => {
   return (
     <div>
-      <div className="flex flex-col lg:flex-row justify-center items-center p-28 font-poppins">
+      <div className="flex flex-col lg:flex-row justify-center lg:items-start p-10 font-poppins">
         <PricingColumn />
         <ShippingColumn />
         <LocationColumn />

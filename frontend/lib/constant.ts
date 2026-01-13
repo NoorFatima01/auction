@@ -124,3 +124,30 @@ export const purchases = [
     date: "26 June, 2024",
   },
 ];
+
+export const users = [
+  {
+    _id: "1",
+    name: "John Doe",
+    email: "john.doe@example.com",
+    role: "Buyer",
+  },
+  {
+    _id: "2",
+    name: "John Doe ",
+    email: "john.doe2@example.com",
+    role: "Seller",
+  },
+  {
+    _id: "3",
+    name: "John Doe  ",
+    email: "john.doe3@example.com",
+    role: "Buyer",
+  },
+  {
+    _id: "4",
+    name: "John Doe   ",
+    email: "john.doe4@example.com",
+    role: "Seller",
+  },
+];

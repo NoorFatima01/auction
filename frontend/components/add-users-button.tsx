@@ -79,7 +79,9 @@ const AddUsersButton = () => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Add User</Button>
+        <Button className="bg-white border cursor-pointer hover:bg-gray-50 border-[#E0E2E7] text-[#667085] font-poppins text-[14px] leading-5">
+          Add User
+        </Button>
       </DialogTrigger>
       <DialogContent>
         <DialogTitle>Add User Dialog</DialogTitle>
