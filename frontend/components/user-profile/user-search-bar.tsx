@@ -2,7 +2,6 @@ import React from "react";
 import SearchBar from "../search-bar";
 import Bell from "@/assets/bell.svg";
 import Image from "next/image";
-import watson from "@/assets/watson.png";
 
 const UserSearchBar = () => {
   return (
@@ -16,7 +15,7 @@ const UserSearchBar = () => {
 
         <div className="flex items-center gap-3">
           <Image
-            src={watson}
+            src={"/watson.png"}
             alt="User Profile"
             width={40}
             height={40}

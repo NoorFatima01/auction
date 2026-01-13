@@ -1,10 +1,8 @@
 "use client";
 import React, { useState } from "react";
-import logo from "@/assets/logo.png";
 import Bell from "@/assets/bell.svg";
 import Cart from "@/assets/cart.svg";
 import Menu from "@/assets/menu.svg";
-import profile from "@/assets/user-profile.png";
 import Image from "next/image";
 import MenuBurger from "./menu-burger";
 import Link from "next/link";
@@ -16,7 +14,7 @@ const NavBar = () => {
     <>
       <div className="flex justify-between items-center px-4 md:px-12 lg:px-24 py-4 font-poppins">
         <div>
-          <Image src={logo} alt="Logo" width={120} height={40} />
+          <Image src="/logo.png" alt="Logo" width={120} height={40} />
         </div>
 
         <nav className="hidden md:block">
@@ -42,7 +40,7 @@ const NavBar = () => {
           </div>
           <div className="cursor-pointer">
             <Image
-              src={profile}
+              src="/user-profile.png"
               alt="User Profile"
               width={50}
               height={50}

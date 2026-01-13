@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Badge from "./badge";
-import watson from "@/assets/watson.png";
 import Image from "next/image";
 import LocationPin from "@/assets/location-pin.svg";
 
@@ -10,9 +9,11 @@ const UserHeader = () => {
     <div className="bg-white font-poppins rounded-lg p-4 sm:p-6 mb-4 sm:mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full sm:w-auto">
         <Image
-          src={watson}
+          src={"/watson.png"}
           alt="User"
           className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover"
+          width={96}
+          height={96}
         />
         <div className="flex-1">
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-1">

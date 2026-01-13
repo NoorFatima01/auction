@@ -14,7 +14,6 @@ import { useQuery } from "@tanstack/react-query";
 import { ObjectId } from "mongodb";
 import Link from "next/link";
 import Image from "next/image";
-import watson from "@/assets/watson.png";
 import Eye from "@/assets/eye.svg";
 import Pencil from "@/assets/pencil.svg";
 import Trash from "@/assets/trash.svg";
@@ -24,6 +23,14 @@ import AddUsersButton from "./add-users-button";
 const fetchUsers = async () => {
   const res = await fetch("http://localhost:5000/api/user/all");
   if (!res.ok) throw new Error("Failed to fetch users");
+  return res.json();
+};
+
+const deleteUser = async (userId: ObjectId) => {
+  const res = await fetch(`http://localhost:5000/api/user/${userId}`, {
+    method: "DELETE",
+  });
+  if (!res.ok) throw new Error("Failed to delete user");
   return res.json();
 };
 
@@ -130,7 +137,7 @@ const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-full">
                           <Image
-                            src={watson}
+                            src={"/watson.png"}
                             alt={user.name}
                             className="w-full h-full object-cover"
                             width={40}
@@ -173,6 +180,7 @@ const UsersTable = ({ userProps }: { userProps: UsersTableProps[] }) => {
                           onClick={() => handleDelete(user._id)}
                           className="p-2 hover:bg-gray-100 transition-colors cursor-pointer"
                           title="Delete"
+                          disabled={typeof user._id === "string"}
                         >
                           <Trash className="w-4 h-4 text-[#999999]" />
                         </button>

@@ -1,7 +1,6 @@
 import React from "react";
 import Bell from "@/assets/bell.svg";
 import Cart from "@/assets/cart.svg";
-import profile from "@/assets/user-profile.png";
 import Image from "next/image";
 import Link from "next/dist/client/link";
 
@@ -61,7 +60,7 @@ const MenuBurger = ({ isOpen, onClose }: MenuBurgerProps) => {
             </button>
             <button className="w-full flex items-center gap-3 p-3 border rounded-lg border-[#3F175F1A] hover:bg-gray-50">
               <Image
-                src={profile}
+                src="/user-profile.png"
                 alt="Profile"
                 width={40}
                 height={40}

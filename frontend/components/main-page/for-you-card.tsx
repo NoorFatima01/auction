@@ -1,7 +1,6 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import Heart from "@/assets/heart.svg";
-import rect from "@/assets/rectangle.png";
 
 type foryouProps = {
   img: StaticImageData;
@@ -32,7 +31,12 @@ const ForYouCard = ({
             />
           </div>
 
-          <Image src={img || rect} alt={description} height={188} width={304} />
+          <Image
+            src={img || "/rectangle.png"}
+            alt={description}
+            height={188}
+            width={304}
+          />
         </div>
 
         <div className="p-3">

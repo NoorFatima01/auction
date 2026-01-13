@@ -4,8 +4,6 @@ import { sidebarMenuItems } from "@/lib/constant";
 import Logout from "@/assets/logout.svg";
 import Image from "next/image";
 
-import logo from "@/assets/logo.png";
-
 const Sidebar = () => {
   const [activeItem, setActiveItem] = useState("users");
 
@@ -13,7 +11,7 @@ const Sidebar = () => {
     <div className="hidden md:flex w-64 font-poppins bg-[#1C1C1C] flex-col m-4 rounded-3xl">
       <div className="p-6 flex justify-center">
         <div className="">
-          <Image src={logo} alt="Logo" width={150} height={50} />
+          <Image src="/logo.png" alt="Logo" width={150} height={50} />
         </div>
       </div>
 

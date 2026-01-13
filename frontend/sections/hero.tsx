@@ -1,12 +1,11 @@
 import React from "react";
-import heroImg from "@/assets/hero-img.png";
 import SearchBar from "../components/search-bar";
 
 const Hero = () => {
   return (
     <div
       className="bg-cover bg-center bg-no-repeat h-auto md:h-[60vh] lg:h-[75vh] px-4 md:px-12 lg:px-24 py-6 md:py-12 lg:py-18 mx-2 md:mx-4 lg:mx-8 my-2 md:my-4 lg:my-6 rounded-2xl md:rounded-3xl lg:rounded-4xl font-poppins"
-      style={{ backgroundImage: `url(${heroImg.src})` }}
+      style={{ backgroundImage: `url(/hero-img.png)` }}
     >
       <div className="w-full md:w-1/2">
         <h1 className="text-[#1A1A1ACC] text-[32px] md:text-[50px] lg:text-[70px] font-medium leading-none mb-4">
