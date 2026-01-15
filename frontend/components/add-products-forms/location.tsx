@@ -39,7 +39,7 @@ const LocationColumn = () => {
             <div className="relative bg-[#F8F7FB]">
               <select
                 {...register("country", { required: "Country is required" })}
-                className="w-full px-4 py-4 text-12px] rounded-lg appearance-none  outline-none text-[#858699]"
+                className="w-full px-4 py-4 text-12px rounded-lg appearance-none  outline-none text-[#858699]"
               >
                 <option value="">Select country</option>
                 <option value="pk">Pakistan</option>
@@ -116,7 +116,7 @@ const LocationColumn = () => {
                 <button
                   type="button"
                   onClick={() => onChange(!value)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full   ${
+                  className={`flex h-6 w-11 items-center rounded-full   ${
                     value ? "bg-cyan-400" : "bg-gray-300"
                   }`}
                 >
@@ -151,7 +151,7 @@ const LocationColumn = () => {
                 <button
                   type="button"
                   onClick={() => onChange(!value)}
-                  className={`relative inline-flex h-6 w-11 items-center rounded-full  ${
+                  className={`flex h-6 w-11 items-center rounded-full  ${
                     value ? "bg-cyan-400" : "bg-gray-300"
                   }`}
                 >
